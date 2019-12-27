@@ -6,9 +6,8 @@
 
 ```
 docker run -it --rm \
--e AWS_ACCESS_KEY_ID="access ID" \
--e AWS_SECRET_ACCESS_KEY="access ID" \
--v ~/awscli:/awscli \
+-e AWS_ACCESS_KEY_ID="AWS access ID" \
+-e AWS_SECRET_ACCESS_KEY="AWS access key" \
 -v /var/run/docker.sock:/var/run/docker.sock \
 sfriedel/awscli-eksctl-plus
 ```
