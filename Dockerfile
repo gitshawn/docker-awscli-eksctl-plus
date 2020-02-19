@@ -30,6 +30,10 @@ RUN sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/maste
 
 RUN sed -i "/^plugins=/c\plugins=(aws kubectl)" /root/.zshrc
 
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 \
+&& chmod 700 get_helm.sh \
+&& ./get_helm.sh
+
 RUN git clone https://github.com/denysdovhan/spaceship-prompt.git "/usr/local/bin/themes/spaceship-prompt"
 
 RUN ln -s "/usr/local/bin/themes/spaceship-prompt/spaceship.zsh-theme" "/root/.oh-my-zsh/themes/spaceship.zsh-theme"
@@ -37,7 +41,6 @@ RUN ln -s "/usr/local/bin/themes/spaceship-prompt/spaceship.zsh-theme" "/root/.o
 RUN sed -i "/^ZSH_THEME=/c\ZSH_THEME=spaceship" /root/.zshrc
 
 RUN apt-get remove -y \
-curl \
 wget \
 git \
 && apt autoremove -y \
