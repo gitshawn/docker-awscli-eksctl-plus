@@ -41,7 +41,6 @@ RUN ln -s "/usr/local/bin/themes/spaceship-prompt/spaceship.zsh-theme" "/root/.o
 RUN sed -i "/^ZSH_THEME=/c\ZSH_THEME=spaceship" /root/.zshrc
 
 RUN apt-get remove -y \
-wget \
 git \
 && apt autoremove -y \
 && rm -rf /var/lib/apt/lists/*
